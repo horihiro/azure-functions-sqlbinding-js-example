@@ -1,0 +1,27 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "sql",
+      "direction": "in",
+      "name": "employees",
+      "CommandType": "Text",
+      "CommandText": "select * from [dbo].[Employees]",
+      "ConnectionStringSetting": "SqlConnectionString"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ]
+}

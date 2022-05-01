@@ -1,0 +1,33 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "shell",
+      "label": "npm install (functions)",
+      "command": "npm install"
+    },
+    {
+      "type": "shell",
+      "label": "generate function.deps.json",
+      "command": "cp ${workspaceFolder}/bin/extensions.deps.json ${workspaceFolder}/bin/function.deps.json",
+      "dependsOn": "func: extensions install"
+    },
+    {
+      "type": "func",
+      "command": "host start --verbose",
+      "problemMatcher": "$func-node-watch",
+      "isBackground": true,
+      "dependsOn": [
+        "generate function.deps.json",
+        "npm install (functions)"
+      ]
+    },
+    {
+      "type": "shell",
+      "label": "npm prune (functions)",
+      "command": "npm prune --production",
+      "dependsOn": "func: extensions install",
+      "problemMatcher": []
+    }
+  ]
+}
