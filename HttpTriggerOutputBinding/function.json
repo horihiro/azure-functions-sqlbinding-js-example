@@ -13,7 +13,6 @@
       "type": "sql",
       "direction": "out",
       "name": "employees",
-      "CommandType": "Text",
       "CommandText": "dbo.Employees",
       "ConnectionStringSetting": "SqlConnectionString"
     },
